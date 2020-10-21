@@ -34,7 +34,7 @@
 
 #include <QtCore/QDateTime>
 #include <QtCore/QSharedDataPointer>
-#include <QtCore/QLinkedList>
+#include <list>
 #include <QtCore/QList>
 #include <QtCore/QPointF>
 #include <QtCore/QRectF>
@@ -636,8 +636,8 @@ public:
     /// \since 0.20
     LineType lineType() const;
 
-    QLinkedList<QPointF> linePoints() const;
-    void setLinePoints(const QLinkedList<QPointF> &points);
+    std::list<QPointF> linePoints() const;
+    void setLinePoints(const std::list<QPointF> &points);
 
     TermStyle lineStartStyle() const;
     void setLineStartStyle(TermStyle style);
@@ -851,8 +851,8 @@ public:
     ~InkAnnotation() override;
     SubType subType() const override;
 
-    QList<QLinkedList<QPointF>> inkPaths() const;
-    void setInkPaths(const QList<QLinkedList<QPointF>> &paths);
+    QList<std::list<QPointF>> inkPaths() const;
+    void setInkPaths(const QList<std::list<QPointF>> &paths);
 
 private:
     explicit InkAnnotation(const QDomNode &node);

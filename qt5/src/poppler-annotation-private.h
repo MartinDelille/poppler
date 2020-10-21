@@ -24,7 +24,7 @@
 #ifndef _POPPLER_ANNOTATION_PRIVATE_H_
 #define _POPPLER_ANNOTATION_PRIVATE_H_
 
-#include <QtCore/QLinkedList>
+#include <list>
 #include <QtCore/QPointF>
 #include <QtCore/QSharedDataPointer>
 
@@ -97,7 +97,7 @@ public:
     void fillTransformationMTX(double MTX[6]) const;
     QRectF fromPdfRectangle(const PDFRectangle &r) const;
     PDFRectangle boundaryToPdfRectangle(const QRectF &r, int flags) const;
-    AnnotPath *toAnnotPath(const QLinkedList<QPointF> &l) const;
+    AnnotPath *toAnnotPath(const std::list<QPointF> &l) const;
 
     /* Scan page for annotations, parentId=0 searches for root annotations, subtypes empty means all subtypes */
     static QList<Annotation *> findAnnotations(::Page *pdfPage, DocumentData *doc, const QSet<Annotation::SubType> &subtypes, int parentId = -1);
